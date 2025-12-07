@@ -34,7 +34,10 @@ Input "SURF PRESS (S):",S
 Input "DENSITY (D):",D
 Input "DEPTH (H):",H
 If G=0:9.8->G
-If S=0:1.01E5->S
+If S=0
+Then
+If Z=0:1.01E5->S
+End
 If Z=0
 Then
 Disp "P=",S+D*G*H

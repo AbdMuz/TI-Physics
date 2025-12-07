@@ -62,7 +62,7 @@ Input "MASS 1 (M):",M
 Input "MASS 2 (O):",O
 Input "RADIUS (R):",R
 Input "FORCE (F):",F
-If N=0:6.67E-11->N
+6.67E-11->N
 If F=0
 Then
 If R=0:Then:Disp "ERR: R=0":Stop:End

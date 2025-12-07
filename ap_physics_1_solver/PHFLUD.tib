@@ -1,0 +1,178 @@
+PROGRAM:PHFLUD
+ClrHome
+Menu("FLUIDS","DENSITY",1,"PRESSURE",2,"BUOYANCY",3,"CONTINUITY",4,"BERNOULLI",5,"EXIT",6)
+
+Lbl 1
+Disp "D=M/V"
+Input "DENSITY (D):",D
+Input "MASS (M):",M
+Input "VOLUME (V):",V
+If D=0
+Then
+Disp "D=",M/V
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",D*V
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",M/D
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "P=P0+DGH"
+Input "ABS PRESS (Z):",Z
+Input "SURF PRESS (S):",S
+Input "DENSITY (D):",D
+Input "DEPTH (H):",H
+If G=0:9.8->G
+If S=0:1.01E5->S
+If Z=0
+Then
+Disp "P=",S+D*G*H
+Pause
+Stop
+End
+If S=0
+Then
+Disp "P0=",Z-D*G*H
+Pause
+Stop
+End
+If D=0
+Then
+Disp "D=",(Z-S)/(G*H)
+Pause
+Stop
+End
+If H=0
+Then
+Disp "H=",(Z-S)/(D*G)
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "FB=DVG"
+Input "BUOY F (F):",F
+Input "DENSITY (D):",D
+Input "DISP VOL (V):",V
+If G=0:9.8->G
+If F=0
+Then
+Disp "FB=",D*V*G
+Pause
+Stop
+End
+If D=0
+Then
+Disp "D=",F/(V*G)
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",F/(D*G)
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Disp "A1V1=A2V2"
+Input "AREA 1 (A):",A
+Input "VEL 1 (V):",V
+Input "AREA 2 (B):",B
+Input "VEL 2 (U):",U
+If A=0
+Then
+Disp "A1=",(B*U)/V
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V1=",(B*U)/A
+Pause
+Stop
+End
+If B=0
+Then
+Disp "A2=",(A*V)/U
+Pause
+Stop
+End
+If U=0
+Then
+Disp "V2=",(A*V)/B
+Pause
+Stop
+End
+Goto 4
+
+Lbl 5
+Disp "BERNOULLI"
+Input "P1:",P
+Input "H1:",H
+Input "V1:",V
+Input "P2:",Q
+Input "H2:",Y
+Input "V2:",U
+Input "DENSITY (D):",D
+If G=0:9.8->G
+Disp "UNK? 1=P1 2=H1"
+Disp "3=V1 4=P2 5=H2"
+Input "6=V2 ",I
+P+D*G*H+0.5*D*V^2->K
+Q+D*G*Y+0.5*D*U^2->L
+If I=1
+Then
+Disp "P1=",L-(D*G*H+0.5*D*V^2)
+Pause
+Stop
+End
+If I=2
+Then
+Disp "H1=",(L-(P+0.5*D*V^2))/(D*G)
+Pause
+Stop
+End
+If I=3
+Then
+(L-(P+D*G*H))/(0.5*D)->J
+Disp "V1=",√(J)
+Pause
+Stop
+End
+If I=4
+Then
+Disp "P2=",K-(D*G*Y+0.5*D*U^2)
+Pause
+Stop
+End
+If I=5
+Then
+Disp "H2=",(K-(Q+0.5*D*U^2))/(D*G)
+Pause
+Stop
+End
+If I=6
+Then
+(K-(Q+D*G*Y))/(0.5*D)->J
+Disp "V2=",√(J)
+Pause
+Stop
+End
+Goto 5
+
+Lbl 6
+Return

@@ -1,0 +1,160 @@
+PROGRAM:PHDYN
+ClrHome
+Menu("DYNAMICS","F=MA",1,"FRICTION",2,"GRAVITY",3,"CIRCULAR",4,"EXIT",5)
+
+Lbl 1
+Disp "NEWTON 2ND LAW"
+Input "MASS (M):",M
+Input "ACCEL (A):",A
+Input "FORCE (F):",F
+If F=0
+Then
+Disp "F=",M*A
+Pause
+Stop
+End
+If M=0
+Then
+If A=0:Then:Disp "ERR: A=0":Stop:End
+Disp "M=",F/A
+Pause
+Stop
+End
+If A=0
+Then
+If M=0:Then:Disp "ERR: M=0":Stop:End
+Disp "A=",F/M
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "F_F <= C*F_N"
+Input "COEFF (C):",C
+Input "NORMAL (N):",N
+Input "FRIC (F):",F
+If F=0
+Then
+Disp "MAX FRIC=",C*N
+Pause
+Stop
+End
+If C=0
+Then
+If N=0:Then:Disp "ERR: N=0":Stop:End
+Disp "COEFF=",F/N
+Pause
+Stop
+End
+If N=0
+Then
+If C=0:Then:Disp "ERR: C=0":Stop:End
+Disp "NORMAL=",F/C
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "F_G=GM1M2/R^2"
+Input "MASS 1 (M):",M
+Input "MASS 2 (O):",O
+Input "RADIUS (R):",R
+Input "FORCE (F):",F
+If N=0:6.67E-11->N
+If F=0
+Then
+If R=0:Then:Disp "ERR: R=0":Stop:End
+Disp "F=",(N*M*O)/(R^2)
+Pause
+Stop
+End
+If R=0
+Then
+If F=0:Then:Disp "ERR: F=0":Stop:End
+(N*M*O)/F->D
+If D<0:Then:Disp "ERR":Stop:End
+Disp "R=",√(D)
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",(F*R^2)/(N*O)
+Pause
+Stop
+End
+If O=0
+Then
+Disp "M2=",(F*R^2)/(N*M)
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Disp "CIRCULAR MOTION"
+Menu("CIRCULAR","AC=V^2/R",A,"FC=MV^2/R",B)
+Lbl A
+Disp "A_C=V^2/R"
+Input "ACCEL (A):",A
+Input "VEL (V):",V
+Input "RADIUS (R):",R
+If A=0
+Then
+If R=0:Then:Disp "ERR: R=0":Stop:End
+Disp "A_C=",V^2/R
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",√(A*R)
+Pause
+Stop
+End
+If R=0
+Then
+If A=0:Then:Disp "ERR: A=0":Stop:End
+Disp "R=",V^2/A
+Pause
+Stop
+End
+Stop
+Lbl B
+Disp "F_C=MV^2/R"
+Input "FORCE (F):",F
+Input "MASS (M):",M
+Input "VEL (V):",V
+Input "RADIUS (R):",R
+If F=0
+Then
+Disp "F=",(M*V^2)/R
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",(F*R)/(V^2)
+Pause
+Stop
+End
+If V=0
+Then
+(F*R)/M->D
+If D<0:Then:Disp "ERR":Stop:End
+Disp "V=",√(D)
+Pause
+Stop
+End
+If R=0
+Then
+Disp "R=",(M*V^2)/F
+Pause
+Stop
+End
+Stop
+
+Lbl 5
+Return

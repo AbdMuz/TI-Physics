@@ -1,0 +1,33 @@
+PROGRAM:PHYSICS1
+9.8->G
+6.67E-11->N
+Lbl 0
+ClrHome
+Menu("AP PHYSICS 1","KINEMATICS",1,"DYNAMICS",2,"ENERGY",3,"MOMENTUM",4,"ROTATION",5,"SHM",6,"NEXT",7)
+Lbl 1
+prgmPHKINE
+Stop
+Lbl 2
+prgmPHDYN
+Stop
+Lbl 3
+prgmPHNRG
+Stop
+Lbl 4
+prgmPHMOM
+Stop
+Lbl 5
+prgmPHROT
+Stop
+Lbl 6
+prgmPHSHM
+Stop
+Lbl 7
+Menu("AP PHYSICS 1","FLUIDS",A,"EXIT",B,"BACK",0)
+Lbl A
+prgmPHFLUD
+Stop
+Lbl B
+ClrHome
+Output(4,6,"GOODBYE")
+Stop

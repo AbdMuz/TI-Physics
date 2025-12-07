@@ -1,0 +1,225 @@
+PROGRAM:PHROT
+ClrHome
+Menu("ROTATION","KINEMATICS",1,"TORQUE",2,"NEWTON 2",3,"ANG MOMENT",4,"ROT KE",5,"EXIT",6)
+
+Lbl 1
+Menu("ROT KINEMATICS","W=W0+AT",A,"O=W0T+.5AT^2",B,"W^2=W0^2+2AO",C)
+Lbl A
+Disp "W=W0+AT"
+Input "FINAL W (U):",U
+Input "INIT W (V):",V
+Input "ALPHA (A):",A
+Input "TIME (T):",T
+If U=0
+Then
+Disp "W=",V+A*T
+Pause
+Stop
+End
+If V=0
+Then
+Disp "W0=",U-A*T
+Pause
+Stop
+End
+If A=0
+Then
+Disp "ALPHA=",(U-V)/T
+Pause
+Stop
+End
+If T=0
+Then
+Disp "T=",(U-V)/A
+Pause
+Stop
+End
+Stop
+
+Lbl B
+Disp "O=W0T+.5AT^2"
+Input "THETA (X):",X
+Input "INIT W (V):",V
+Input "TIME (T):",T
+Input "ALPHA (A):",A
+If X=0
+Then
+Disp "THETA=",V*T+0.5*A*T^2
+Pause
+Stop
+End
+If V=0
+Then
+If T=0:Then:Disp "ERR: T=0":Stop:End
+Disp "W0=",(X-0.5*A*T^2)/T
+Pause
+Stop
+End
+If A=0
+Then
+If T=0:Then:Disp "ERR: T=0":Stop:End
+Disp "ALPHA=",2*(X-V*T)/(T^2)
+Pause
+Stop
+End
+If T=0
+Then
+If A=0
+Then
+Disp "T=",X/V
+Pause
+Stop
+End
+V^2+2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+(-V+√(D))/A->Y
+(-V-√(D))/A->Z
+Disp "T1=",Y
+Disp "T2=",Z
+Pause
+Stop
+End
+Stop
+
+Lbl C
+Disp "W^2=W0^2+2AO"
+Input "FINAL W (U):",U
+Input "INIT W (V):",V
+Input "ALPHA (A):",A
+Input "THETA (X):",X
+If U=0
+Then
+V^2+2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+Disp "W=",√(D)
+Pause
+Stop
+End
+If V=0
+Then
+U^2-2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+Disp "W0=",√(D)
+Pause
+Stop
+End
+If A=0
+Then
+If X=0:Then:Disp "ERR: X=0":Stop:End
+Disp "ALPHA=",(U^2-V^2)/(2*X)
+Pause
+Stop
+End
+If X=0
+Then
+If A=0:Then:Disp "ERR: A=0":Stop:End
+Disp "THETA=",(U^2-V^2)/(2*A)
+Pause
+Stop
+End
+Stop
+
+Lbl 2
+Disp "T=RF SIN(0)"
+Input "TORQUE (Q):",Q
+Input "RADIUS (R):",R
+Input "FORCE (F):",F
+Input "ANGLE (0):",θ
+Degree
+If Q=0
+Then
+Disp "TORQUE=",R*F*sin(θ)
+Pause
+Stop
+End
+If R=0
+Then
+Disp "R=",Q/(F*sin(θ))
+Pause
+Stop
+End
+If F=0
+Then
+Disp "F=",Q/(R*sin(θ))
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "SUM T = I*ALPHA"
+Input "TORQUE (Q):",Q
+Input "INERTIA (I):",I
+Input "ALPHA (A):",A
+If Q=0
+Then
+Disp "TORQUE=",I*A
+Pause
+Stop
+End
+If I=0
+Then
+Disp "I=",Q/A
+Pause
+Stop
+End
+If A=0
+Then
+Disp "ALPHA=",Q/I
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Disp "L=IW"
+Input "ANG MOM (L):",L
+Input "INERTIA (I):",I
+Input "ANG VEL (W):",W
+If L=0
+Then
+Disp "L=",I*W
+Pause
+Stop
+End
+If I=0
+Then
+Disp "I=",L/W
+Pause
+Stop
+End
+If W=0
+Then
+Disp "W=",L/I
+Pause
+Stop
+End
+Goto 4
+
+Lbl 5
+Disp "K=.5IW^2"
+Input "ROT KE (K):",K
+Input "INERTIA (I):",I
+Input "ANG VEL (W):",W
+If K=0
+Then
+Disp "K=",0.5*I*W^2
+Pause
+Stop
+End
+If I=0
+Then
+Disp "I=",(2*K)/(W^2)
+Pause
+Stop
+End
+If W=0
+Then
+Disp "W=",√(2*K/I)
+Pause
+Stop
+End
+Goto 5
+
+Lbl 6
+Return

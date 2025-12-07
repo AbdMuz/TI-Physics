@@ -1,0 +1,161 @@
+PROGRAM:PHNRG
+ClrHome
+Menu("ENERGY","KINETIC",1,"GRAV POT",2,"SPRING PE",3,"WORK",4,"POWER",5,"EXIT",6)
+
+Lbl 1
+Disp "K=.5MV^2"
+Input "ENERGY (E):",E
+Input "MASS (M):",M
+Input "VEL (V):",V
+If E=0
+Then
+Disp "K=",0.5*M*V^2
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",(2*E)/(V^2)
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",√(2*E/M)
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "PE=MGH"
+Input "ENERGY (E):",E
+Input "MASS (M):",M
+Input "HEIGHT (H):",H
+If G=0:9.8->G
+If E=0
+Then
+Disp "PE=",M*G*H
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",E/(G*H)
+Pause
+Stop
+End
+If H=0
+Then
+Disp "H=",E/(M*G)
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "PE=.5KX^2"
+Input "ENERGY (E):",E
+Input "CONST (K):",K
+Input "DISP (X):",X
+If E=0
+Then
+Disp "PE=",0.5*K*X^2
+Pause
+Stop
+End
+If K=0
+Then
+Disp "K=",(2*E)/(X^2)
+Pause
+Stop
+End
+If X=0
+Then
+Disp "X=",√(2*E/K)
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Disp "W=FDCOS(0)"
+Input "WORK (W):",W
+Input "FORCE (F):",F
+Input "DIST (D):",D
+Input "ANGLE (0):",θ
+Degree
+If W=0
+Then
+Disp "W=",F*D*cos(θ)
+Pause
+Stop
+End
+If F=0
+Then
+Disp "F=",W/(D*cos(θ))
+Pause
+Stop
+End
+If D=0
+Then
+Disp "D=",W/(F*cos(θ))
+Pause
+Stop
+End
+Goto 4
+
+Lbl 5
+Disp "P=W/T OR FV"
+Menu("POWER","P=W/T",A,"P=FVCOS(0)",B)
+Lbl A
+Input "POWER (P):",P
+Input "WORK (W):",W
+Input "TIME (T):",T
+If P=0
+Then
+Disp "P=",W/T
+Pause
+Stop
+End
+If W=0
+Then
+Disp "W=",P*T
+Pause
+Stop
+End
+If T=0
+Then
+Disp "T=",W/P
+Pause
+Stop
+End
+Stop
+Lbl B
+Input "POWER (P):",P
+Input "FORCE (F):",F
+Input "VEL (V):",V
+Input "ANGLE (0):",θ
+Degree
+If P=0
+Then
+Disp "P=",F*V*cos(θ)
+Pause
+Stop
+End
+If F=0
+Then
+Disp "F=",P/(V*cos(θ))
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",P/(F*cos(θ))
+Pause
+Stop
+End
+Stop
+
+Lbl 6
+Return

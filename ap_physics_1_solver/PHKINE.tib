@@ -1,0 +1,123 @@
+PROGRAM:PHKINE
+ClrHome
+Menu("KINEMATICS","V=V0+AT",1,"X=V0T+.5AT^2",2,"V^2=V0^2+2AX",3,"EXIT",4)
+Lbl 1
+Disp "V=V0+AT"
+Input "FINAL V (U):",U
+Input "INIT V (V):",V
+Input "ACCEL (A):",A
+Input "TIME (T):",T
+If U=0
+Then
+Disp "U=",V+A*T
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",U-A*T
+Pause
+Stop
+End
+If A=0
+Then
+If T=0:Then:Disp "ERR: T=0":Stop:End
+Disp "A=",(U-V)/T
+Pause
+Stop
+End
+If T=0
+Then
+If A=0:Then:Disp "ERR: A=0":Stop:End
+Disp "T=",(U-V)/A
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "X=V0T+.5AT^2"
+Input "DISP (X):",X
+Input "INIT V (V):",V
+Input "TIME (T):",T
+Input "ACCEL (A):",A
+If X=0
+Then
+Disp "X=",V*T+0.5*A*T^2
+Pause
+Stop
+End
+If V=0
+Then
+If T=0:Then:Disp "ERR: T=0":Stop:End
+Disp "V=",(X-0.5*A*T^2)/T
+Pause
+Stop
+End
+If A=0
+Then
+If T=0:Then:Disp "ERR: T=0":Stop:End
+Disp "A=",2*(X-V*T)/(T^2)
+Pause
+Stop
+End
+If T=0
+Then
+If A=0
+Then
+If V=0:Then:Disp "ERR: V=0":Stop:End
+Disp "T=",X/V
+Pause
+Stop
+End
+V^2+2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+(-V+√(D))/A->Y
+(-V-√(D))/A->Z
+Disp "T1=",Y
+Disp "T2=",Z
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "V^2=V0^2+2AX"
+Input "FINAL V (U):",U
+Input "INIT V (V):",V
+Input "ACCEL (A):",A
+Input "DISP (X):",X
+If U=0
+Then
+V^2+2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+Disp "U=",√(D)
+Pause
+Stop
+End
+If V=0
+Then
+U^2-2*A*X->D
+If D<0:Then:Disp "NO REAL SOL":Stop:End
+Disp "V=",√(D)
+Pause
+Stop
+End
+If A=0
+Then
+If X=0:Then:Disp "ERR: X=0":Stop:End
+Disp "A=",(U^2-V^2)/(2*X)
+Pause
+Stop
+End
+If X=0
+Then
+If A=0:Then:Disp "ERR: A=0":Stop:End
+Disp "X=",(U^2-V^2)/(2*A)
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Return

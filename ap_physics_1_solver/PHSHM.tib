@@ -1,0 +1,93 @@
+PROGRAM:PHSHM
+ClrHome
+Menu("SHM","PERIOD SPRING",1,"PERIOD PEND",2,"T=1/F",3,"HOOKES LAW",4,"EXIT",5)
+
+Lbl 1
+Disp "TS=2PI√(M/K)"
+Input "PERIOD (T):",T
+Input "MASS (M):",M
+Input "CONST (K):",K
+If T=0
+Then
+Disp "T=",2*π*√(M/K)
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",K*(T/(2*π))^2
+Pause
+Stop
+End
+If K=0
+Then
+Disp "K=",M/(T/(2*π))^2
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "TP=2PI√(L/G)"
+Input "PERIOD (T):",T
+Input "LENGTH (L):",L
+If G=0:9.8->G
+If T=0
+Then
+Disp "T=",2*π*√(L/G)
+Pause
+Stop
+End
+If L=0
+Then
+Disp "L=",G*(T/(2*π))^2
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "T=1/F"
+Input "PERIOD (T):",T
+Input "FREQ (F):",F
+If T=0
+Then
+Disp "T=",1/F
+Pause
+Stop
+End
+If F=0
+Then
+Disp "F=",1/T
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Disp "FS=|KX|"
+Input "FORCE (F):",F
+Input "CONST (K):",K
+Input "DISP (X):",X
+If F=0
+Then
+Disp "F=",abs(K*X)
+Pause
+Stop
+End
+If K=0
+Then
+Disp "K=",F/abs(X)
+Pause
+Stop
+End
+If X=0
+Then
+Disp "X=",F/K
+Pause
+Stop
+End
+Goto 4
+
+Lbl 5
+Return

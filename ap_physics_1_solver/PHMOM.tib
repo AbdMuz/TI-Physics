@@ -1,0 +1,110 @@
+PROGRAM:PHMOM
+ClrHome
+Menu("MOMENTUM","P=MV",1,"IMPULSE",2,"CONSERV",3,"EXIT",4)
+
+Lbl 1
+Disp "P=MV"
+Input "MOMENTUM (P):",P
+Input "MASS (M):",M
+Input "VEL (V):",V
+If P=0
+Then
+Disp "P=",M*V
+Pause
+Stop
+End
+If M=0
+Then
+Disp "M=",P/V
+Pause
+Stop
+End
+If V=0
+Then
+Disp "V=",P/M
+Pause
+Stop
+End
+Goto 1
+
+Lbl 2
+Disp "J=F*T=DP"
+Input "IMPULSE (J):",J
+Input "FORCE (F):",F
+Input "TIME (T):",T
+If J=0
+Then
+Disp "J=",F*T
+Pause
+Stop
+End
+If F=0
+Then
+Disp "F=",J/T
+Pause
+Stop
+End
+If T=0
+Then
+Disp "T=",J/F
+Pause
+Stop
+End
+Goto 2
+
+Lbl 3
+Disp "M1V1+M2V2=..."
+Input "M1:",M
+Input "V1I:",V
+Input "M2:",O
+Input "V2I:",U
+Input "V1F:",Y
+Input "V2F:",Z
+Disp "ENTER 0 FOR UNK"
+Input "WHICH UNK? (1-6)",I
+If I=1
+Then
+(O*Z-O*U)/(V-Y)->K
+Disp "M1=",K
+Pause
+Stop
+End
+If I=2
+Then
+(M*Y+O*Z-O*U)/M->K
+Disp "V1I=",K
+Pause
+Stop
+End
+If I=3
+Then
+(M*Y-M*V)/(U-Z)->K
+Disp "M2=",K
+Pause
+Stop
+End
+If I=4
+Then
+(M*Y+O*Z-M*V)/O->K
+Disp "V2I=",K
+Pause
+Stop
+End
+If I=5
+Then
+(M*V+O*U-O*Z)/M->K
+Disp "V1F=",K
+Pause
+Stop
+End
+If I=6
+Then
+(M*V+O*U-M*Y)/O->K
+Disp "V2F=",K
+Pause
+Stop
+End
+Goto 3
+
+Lbl 4
+Return

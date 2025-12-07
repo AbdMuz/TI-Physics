@@ -1,4 +1,5 @@
 PROGRAM:PHYSICS1
+Func
 9.8->G
 6.67E-11->N
 Lbl 0

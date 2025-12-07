@@ -72,8 +72,8 @@ Stop
 End
 V^2+2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-(-V+√(D))/A->Y
-(-V-√(D))/A->Z
+(-V+sqrt(D))/A->Y
+(-V-sqrt(D))/A->Z
 Disp "T1=",Y
 Disp "T2=",Z
 Pause
@@ -91,7 +91,7 @@ If U=0
 Then
 V^2+2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-Disp "U=",√(D)
+Disp "U=",sqrt(D)
 Pause
 Stop
 End
@@ -99,7 +99,7 @@ If V=0
 Then
 U^2-2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-Disp "V=",√(D)
+Disp "V=",sqrt(D)
 Pause
 Stop
 End

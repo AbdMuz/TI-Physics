@@ -16,8 +16,11 @@ This directory contains the source code for a modular AP Physics 1 solver design
 ## Installation Instructions
 
 1.  **Transfer**: You need TI-Connect software and a USB cable to transfer these files to your calculator.
-    - If you have the files in `.8xp` format (compiled), just drag and drop.
-    - If you are typing them manually or using a text editor, ensure you use the correct tokens.
+    - If you are manually typing these programs or using a tool that requires specific tokens:
+      - `->` represents the **Store** key (`STO>`).
+      - `sqrt(` represents the **Square Root** command (`2nd` + `x^2`).
+      - `pi` represents the **Pi** token (`2nd` + `^`).
+      - `theta` represents the **Theta** variable (`ALPHA` + `3` or `X,T,θ,n` depending on mode).
 2.  **Dependencies**: The programs rely on each other. You must install all files.
 3.  **Global Variables**: The programs use global variables (A-Z, Theta). Running these programs will overwrite values stored in these variables.
 4.  **Running**: Execute `prgmPHYSICS1` to start.

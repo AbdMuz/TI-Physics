@@ -3,44 +3,44 @@ ClrHome
 Menu("SHM","PERIOD SPRING",1,"PERIOD PEND",2,"T=1/F",3,"HOOKES LAW",4,"EXIT",5)
 
 Lbl 1
-Disp "TS=2PI√(M/K)"
+Disp "TS=2PIsqrt(M/K)"
 Input "PERIOD (T):",T
 Input "MASS (M):",M
 Input "CONST (K):",K
 If T=0
 Then
-Disp "T=",2*π*√(M/K)
+Disp "T=",2*pi*sqrt(M/K)
 Pause
 Stop
 End
 If M=0
 Then
-Disp "M=",K*(T/(2*π))^2
+Disp "M=",K*(T/(2*pi))^2
 Pause
 Stop
 End
 If K=0
 Then
-Disp "K=",M/(T/(2*π))^2
+Disp "K=",M/(T/(2*pi))^2
 Pause
 Stop
 End
 Goto 1
 
 Lbl 2
-Disp "TP=2PI√(L/G)"
+Disp "TP=2PIsqrt(L/G)"
 Input "PERIOD (T):",T
 Input "LENGTH (L):",L
 If G=0:9.8->G
 If T=0
 Then
-Disp "T=",2*π*√(L/G)
+Disp "T=",2*pi*sqrt(L/G)
 Pause
 Stop
 End
 If L=0
 Then
-Disp "L=",G*(T/(2*π))^2
+Disp "L=",G*(T/(2*pi))^2
 Pause
 Stop
 End

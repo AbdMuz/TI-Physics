@@ -75,7 +75,7 @@ Then
 If F=0:Then:Disp "ERR: F=0":Stop:End
 (N*M*O)/F->D
 If D<0:Then:Disp "ERR":Stop:End
-Disp "R=",√(D)
+Disp "R=",sqrt(D)
 Pause
 Stop
 End
@@ -110,7 +110,7 @@ Stop
 End
 If V=0
 Then
-Disp "V=",√(A*R)
+Disp "V=",sqrt(A*R)
 Pause
 Stop
 End
@@ -144,7 +144,7 @@ If V=0
 Then
 (F*R)/M->D
 If D<0:Then:Disp "ERR":Stop:End
-Disp "V=",√(D)
+Disp "V=",sqrt(D)
 Pause
 Stop
 End

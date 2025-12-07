@@ -149,7 +149,7 @@ End
 If I=3
 Then
 (L-(P+D*G*H))/(0.5*D)->J
-Disp "V1=",√(J)
+Disp "V1=",sqrt(J)
 Pause
 Stop
 End
@@ -168,7 +168,7 @@ End
 If I=6
 Then
 (K-(Q+D*G*Y))/(0.5*D)->J
-Disp "V2=",√(J)
+Disp "V2=",sqrt(J)
 Pause
 Stop
 End

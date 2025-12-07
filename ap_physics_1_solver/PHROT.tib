@@ -72,8 +72,8 @@ Stop
 End
 V^2+2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-(-V+√(D))/A->Y
-(-V-√(D))/A->Z
+(-V+sqrt(D))/A->Y
+(-V-sqrt(D))/A->Z
 Disp "T1=",Y
 Disp "T2=",Z
 Pause
@@ -91,7 +91,7 @@ If U=0
 Then
 V^2+2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-Disp "W=",√(D)
+Disp "W=",sqrt(D)
 Pause
 Stop
 End
@@ -99,7 +99,7 @@ If V=0
 Then
 U^2-2*A*X->D
 If D<0:Then:Disp "NO REAL SOL":Stop:End
-Disp "W0=",√(D)
+Disp "W0=",sqrt(D)
 Pause
 Stop
 End
@@ -124,23 +124,23 @@ Disp "T=RF SIN(0)"
 Input "TORQUE (Q):",Q
 Input "RADIUS (R):",R
 Input "FORCE (F):",F
-Input "ANGLE (0):",θ
+Input "ANGLE (0):",theta
 Degree
 If Q=0
 Then
-Disp "TORQUE=",R*F*sin(θ)
+Disp "TORQUE=",R*F*sin(theta)
 Pause
 Stop
 End
 If R=0
 Then
-Disp "R=",Q/(F*sin(θ))
+Disp "R=",Q/(F*sin(theta))
 Pause
 Stop
 End
 If F=0
 Then
-Disp "F=",Q/(R*sin(θ))
+Disp "F=",Q/(R*sin(theta))
 Pause
 Stop
 End
@@ -215,7 +215,7 @@ Stop
 End
 If W=0
 Then
-Disp "W=",√(2*K/I)
+Disp "W=",sqrt(2*K/I)
 Pause
 Stop
 End

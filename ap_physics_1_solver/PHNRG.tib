@@ -21,7 +21,7 @@ Stop
 End
 If V=0
 Then
-Disp "V=",√(2*E/M)
+Disp "V=",sqrt(2*E/M)
 Pause
 Stop
 End
@@ -72,7 +72,7 @@ Stop
 End
 If X=0
 Then
-Disp "X=",√(2*E/K)
+Disp "X=",sqrt(2*E/K)
 Pause
 Stop
 End
@@ -83,23 +83,23 @@ Disp "W=FDCOS(0)"
 Input "WORK (W):",W
 Input "FORCE (F):",F
 Input "DIST (D):",D
-Input "ANGLE (0):",θ
+Input "ANGLE (0):",theta
 Degree
 If W=0
 Then
-Disp "W=",F*D*cos(θ)
+Disp "W=",F*D*cos(theta)
 Pause
 Stop
 End
 If F=0
 Then
-Disp "F=",W/(D*cos(θ))
+Disp "F=",W/(D*cos(theta))
 Pause
 Stop
 End
 If D=0
 Then
-Disp "D=",W/(F*cos(θ))
+Disp "D=",W/(F*cos(theta))
 Pause
 Stop
 End
@@ -135,23 +135,23 @@ Lbl B
 Input "POWER (P):",P
 Input "FORCE (F):",F
 Input "VEL (V):",V
-Input "ANGLE (0):",θ
+Input "ANGLE (0):",theta
 Degree
 If P=0
 Then
-Disp "P=",F*V*cos(θ)
+Disp "P=",F*V*cos(theta)
 Pause
 Stop
 End
 If F=0
 Then
-Disp "F=",P/(V*cos(θ))
+Disp "F=",P/(V*cos(theta))
 Pause
 Stop
 End
 If V=0
 Then
-Disp "V=",P/(F*cos(θ))
+Disp "V=",P/(F*cos(theta))
 Pause
 Stop
 End
